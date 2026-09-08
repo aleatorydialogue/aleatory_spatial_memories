@@ -100,7 +100,7 @@ const formAction = formReady ? configuredEndpoint : undefined;
     This is an application, not a booking. Please do not include private
     medical, financial, or identifying information about other people.
     Participation and any permission to publish a capture will be discussed
-    separately.
+    separately. Read our <a href="/privacy/">privacy notice</a>.
   </p>
 
   {
@@ -123,6 +123,20 @@ const formAction = formReady ? configuredEndpoint : undefined;
     "[data-application-form]",
   );
   const status = document.querySelector<HTMLElement>("[data-form-status]");
+  const applicationState = new URLSearchParams(window.location.search).get(
+    "application",
+  );
+
+  if (status && applicationState === "received") {
+    status.textContent =
+      "Thank you. Your application has been received, and we’ll be in touch if the scene may be a fit.";
+    status.classList.add("form-status-success");
+    form?.reset();
+  } else if (status && applicationState === "error") {
+    status.textContent =
+      "We couldn’t send your application. Please review the fields and try again in a moment.";
+    status.classList.add("form-status-error");
+  }
 
   form?.addEventListener("submit", () => {
     if (status) status.textContent = "Sending your application…";

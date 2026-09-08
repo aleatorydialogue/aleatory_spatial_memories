@@ -41,6 +41,8 @@ The first interest form should avoid uploads and ask only for enough information
 
 Do not send sensitive form contents broadly through chat or email notifications. Notifications should contain minimal detail and direct an authorized person to the protected source record.
 
+For the Founding Captures v0, the founder has accepted email as the temporary application record. The Cloudflare Worker does not intentionally persist a separate copy and restricts delivery to the founder's Gmail address. Applicants are warned not to submit sensitive or third-party identifying information. This exception should be revisited before the form expands, multiple operators need access, or capture media can be uploaded.
+
 ## Publication and build in public
 
 Participation in a capture must not require appearing in promotional material unless that is an explicit, prominent condition of a particular program. Permission should separately address names, likenesses, testimonials, final captures, raw or behind-the-scenes footage, Holding the String content, channels, duration, territory, revocation terms, and use involving minors.

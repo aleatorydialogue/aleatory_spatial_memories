@@ -29,4 +29,6 @@ npm run build
 
 Copy `.env.example` to `.env` and set `PUBLIC_APPLICATION_FORM_ENDPOINT` to an approved HTTPS form endpoint before accepting applications. With no endpoint configured, the application is deliberately displayed in preview mode and cannot submit customer data.
 
-The stack decision is recorded in ADR 0001. Hosting, intake storage, and notification vendors remain open pending privacy review.
+Production uses `https://forms.rememberingpresence.com/apply`, supplied by the GitHub Pages workflow. The endpoint is implemented as a Cloudflare Worker in `worker/`; see [`docs/technical/deployment.md`](docs/technical/deployment.md) for setup and deployment.
+
+The stack decision is recorded in ADR 0001 and the deployment decision in ADR 0002.

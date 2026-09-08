@@ -1,0 +1,112 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Privacy — Aleatory Spatial Memories"
+  description="How Aleatory Spatial Memories handles Founding Captures application information."
+>
+  <main id="main" class="legal-page">
+    <a class="legal-back" href="/">← Aleatory Spatial Memories</a>
+    <p class="section-index">Privacy notice · v0</p>
+    <h1>Application privacy</h1>
+    <p class="legal-updated">Effective September 8, 2026</p>
+
+    <section>
+      <h2>What we collect</h2>
+      <p>
+        If you apply for a Founding Capture, we collect the name, email address,
+        general Connecticut-area location, scene description, scene categories,
+        and optional practical details you submit. Please do not include
+        sensitive information or private information about other people.
+      </p>
+    </section>
+
+    <section>
+      <h2>How we use it</h2>
+      <p>
+        We use application information only to assess whether a proposed scene
+        may fit the experimental program, respond to you, plan a possible
+        conversation, and understand interest in the service. Applying does not
+        grant permission to publish your story or capture. Any capture,
+        testimonial, or publication permission will be discussed separately.
+      </p>
+    </section>
+
+    <section>
+      <h2>Where it goes</h2>
+      <p>
+        The form is processed by Cloudflare and delivered as an email to the
+        founder’s Gmail account. The application Worker does not intentionally
+        store a separate copy. Cloudflare, Google, and GitHub process limited
+        technical or account data under their own terms and privacy practices.
+      </p>
+    </section>
+
+    <section>
+      <h2>Retention and choices</h2>
+      <p>
+        Application emails are retained only while useful for evaluating and
+        operating the Founding Captures program. You may ask us to delete your
+        application or stop contacting you by replying to our correspondence.
+        More detailed capture terms will apply before any session involving
+        people, homes, audio, or source imagery.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>
+        Privacy questions may be sent to
+        <a href="mailto:aleatorydialogue@gmail.com"
+          >aleatorydialogue@gmail.com</a
+        >.
+      </p>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    min-height: 100vh;
+    padding: clamp(2rem, 7vw, 7rem);
+    background: var(--paper);
+  }
+  .legal-back {
+    display: inline-block;
+    margin-bottom: clamp(4rem, 10vw, 8rem);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-underline-offset: 0.25rem;
+  }
+  .legal-page h1 {
+    max-width: none;
+    margin: 1rem 0;
+    color: var(--ink);
+  }
+  .legal-updated {
+    color: #6a655b;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .legal-page section {
+    max-width: 48rem;
+    margin: 3rem 0;
+    border-top: 1px solid var(--line);
+    padding-top: 1.25rem;
+  }
+  .legal-page h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    font-weight: 400;
+  }
+  .legal-page section p {
+    color: #514e46;
+    line-height: 1.7;
+  }
+  .legal-page section a {
+    text-underline-offset: 0.2rem;
+  }
+</style>

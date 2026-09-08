@@ -20,7 +20,7 @@ An Astro application should render content pages statically. Strict TypeScript s
 
 Initial content can live as typed Markdown/MDX or structured local data. CSS custom properties should define brand tokens. Tailwind should be adopted only if the implementation team deliberately chooses it after visual exploration.
 
-The initial application form posts directly to a reviewed HTTPS endpoint supplied through `PUBLIC_APPLICATION_FORM_ENDPOINT`. No intake provider is selected in the repository. Without configuration, the UI stays in an explicit preview state and does not collect data.
+The initial application form posts directly to a Cloudflare Worker supplied through `PUBLIC_APPLICATION_FORM_ENDPOINT`. The Worker emails validated submissions without intentionally storing a separate copy. Without endpoint configuration, the UI stays in an explicit preview state and does not collect data. See ADR 0002 and `deployment.md`.
 
 ## System boundaries
 
@@ -56,8 +56,7 @@ Exact scripts and CI configuration should be defined with scaffolding rather tha
 
 ## Open decisions
 
-- Hosting and deployment provider
-- Intake, notification, and lead-record systems
+- Whether email remains sufficient after initial application volume
 - Analytics and consent approach
 - Spatial viewer library and delivery formats
 - Media storage and CDN

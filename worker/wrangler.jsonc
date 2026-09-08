@@ -1,0 +1,32 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "remembering-presence-form",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-08",
+  "routes": [
+    {
+      "pattern": "forms.rememberingpresence.com",
+      "custom_domain": true,
+    },
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL",
+      "destination_address": "aleatorydialogue@gmail.com",
+      "allowed_sender_addresses": ["applications@rememberingpresence.com"],
+    },
+  ],
+  "ratelimits": [
+    {
+      "name": "APPLICATION_RATE_LIMITER",
+      "namespace_id": "22091",
+      "simple": {
+        "limit": 4,
+        "period": 60,
+      },
+    },
+  ],
+  "observability": {
+    "enabled": true,
+  },
+}

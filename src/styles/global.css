@@ -653,6 +653,23 @@ fieldset {
   color: #6a655b;
   margin: 0;
 }
+.form-note a,
+.form-status,
+.footer-meta a {
+  text-underline-offset: 0.2rem;
+}
+.form-status-success {
+  color: #315700;
+  border-left: 3px solid #6b9800;
+  padding: 0.7rem 0.85rem;
+  background: rgba(216, 255, 99, 0.25);
+}
+.form-status-error {
+  color: #7f2913;
+  border-left: 3px solid var(--rust);
+  padding: 0.7rem 0.85rem;
+  background: rgba(168, 65, 34, 0.09);
+}
 .preview-notice {
   border-left: 3px solid var(--rust);
   padding: 0.6rem 0.8rem;
