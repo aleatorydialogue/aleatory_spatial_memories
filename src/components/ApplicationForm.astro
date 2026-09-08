@@ -1,0 +1,130 @@
+---
+const configuredEndpoint =
+  import.meta.env.PUBLIC_APPLICATION_FORM_ENDPOINT?.trim();
+const formReady = Boolean(configuredEndpoint);
+const formAction = formReady ? configuredEndpoint : undefined;
+---
+
+<form
+  class="application-form"
+  action={formAction}
+  method="post"
+  data-application-form
+  data-ready={formReady}
+>
+  <input
+    type="hidden"
+    name="program"
+    value="Remembering Presence — Founding Captures"
+  />
+  <div class="honeypot" aria-hidden="true">
+    <label for="company-website">Company website</label>
+    <input
+      id="company-website"
+      name="company_website"
+      type="text"
+      tabindex="-1"
+      autocomplete="off"
+    />
+  </div>
+
+  <div class="field-pair">
+    <label>
+      <span>Your name</span>
+      <input name="name" autocomplete="name" required />
+    </label>
+    <label>
+      <span>Email</span>
+      <input name="email" type="email" autocomplete="email" required />
+    </label>
+  </div>
+
+  <label>
+    <span>Where in or near Connecticut are you?</span>
+    <input
+      name="location"
+      autocomplete="address-level2"
+      placeholder="Town or general area"
+      required
+    />
+  </label>
+
+  <label>
+    <span>What would you want to remember?</span>
+    <textarea
+      name="memory"
+      rows="5"
+      minlength="20"
+      maxlength="1500"
+      placeholder="Tell us about the person, place, gathering, performance, or moment—and why it matters to you."
+      required></textarea>
+  </label>
+
+  <fieldset>
+    <legend>What kind of scene are you imagining?</legend>
+    <div class="choice-grid">
+      <label
+        ><input type="checkbox" name="scene_type" value="people" /> People or family</label
+      >
+      <label
+        ><input type="checkbox" name="scene_type" value="place" /> A meaningful place</label
+      >
+      <label
+        ><input type="checkbox" name="scene_type" value="event" /> An event or performance</label
+      >
+      <label
+        ><input type="checkbox" name="scene_type" value="object" /> An object or artwork</label
+      >
+    </div>
+  </fieldset>
+
+  <label>
+    <span>Timing and practical details <em>Optional</em></span>
+    <textarea
+      name="details"
+      rows="3"
+      maxlength="1000"
+      placeholder="Possible dates, number of people, motion involved, indoor/outdoor, accessibility needs, or questions"
+    ></textarea>
+  </label>
+
+  <label class="consent-row">
+    <input name="contact_consent" type="checkbox" value="yes" required />
+    <span
+      >I agree that Aleatory Spatial Memories may use this information to review
+      my application and contact me about the Founding Captures program.</span
+    >
+  </label>
+
+  <p class="form-note">
+    This is an application, not a booking. Please do not include private
+    medical, financial, or identifying information about other people.
+    Participation and any permission to publish a capture will be discussed
+    separately.
+  </p>
+
+  {
+    !formReady && (
+      <p class="preview-notice" role="status">
+        Application preview: submissions will open after the private intake
+        system is connected.
+      </p>
+    )
+  }
+
+  <button class="button button-dark" type="submit" disabled={!formReady}>
+    Submit an application <span aria-hidden="true">↗</span>
+  </button>
+  <p class="form-status" data-form-status aria-live="polite"></p>
+</form>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>(
+    "[data-application-form]",
+  );
+  const status = document.querySelector<HTMLElement>("[data-form-status]");
+
+  form?.addEventListener("submit", () => {
+    if (status) status.textContent = "Sending your application…";
+  });
+</script>

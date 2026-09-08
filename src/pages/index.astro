@@ -1,0 +1,206 @@
+---
+import ApplicationForm from "../components/ApplicationForm.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout>
+  <div id="top" class="page-shell">
+    <SiteHeader />
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Introducing</p>
+          <h1 id="hero-title">Remembering <em>Presence</em></h1>
+          <p class="hero-lede">
+            Not just how a moment looked. A memory of being there—preserved in
+            space, so one day you can move through it again.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-light" href="#apply"
+              >Apply for a Founding Capture <span aria-hidden="true">↘</span></a
+            >
+            <a class="text-link" href="#what-it-is"
+              >Discover the idea <span aria-hidden="true">↓</span></a
+            >
+          </div>
+          <p class="hero-caption">
+            A small experimental program, beginning in Connecticut.
+          </p>
+        </div>
+
+        <div
+          class="memory-window"
+          aria-label="Abstract visualization of a person held in a spatial memory"
+        >
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="presence" aria-hidden="true">
+            <span class="presence-head"></span>
+            <span class="presence-body"></span>
+          </div>
+          <p><span>01</span> A moment seen from many points of view</p>
+        </div>
+      </section>
+
+      <section
+        id="what-it-is"
+        class="manifesto section-pad"
+        aria-labelledby="manifesto-title"
+      >
+        <p class="section-index">01 / The idea</p>
+        <div>
+          <h2 id="manifesto-title">Some memories deserve more than a frame.</h2>
+          <p>
+            Photographs hold a view. Video holds a sequence. A Spatial Memory
+            holds a scene—giving you room to look around, change perspective,
+            and encounter a meaningful moment in a new way.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="comparison section-pad"
+        aria-label="Comparison of photographs, video, and spatial memories"
+      >
+        <article>
+          <span class="card-number">01</span>
+          <div class="medium-icon frame-icon" aria-hidden="true"></div>
+          <h3>Photography</h3>
+          <p>One perspective, chosen and held.</p>
+        </article>
+        <article>
+          <span class="card-number">02</span>
+          <div class="medium-icon sequence-icon" aria-hidden="true"></div>
+          <h3>Video</h3>
+          <p>A moment unfolding from one moving view.</p>
+        </article>
+        <article class="featured-card">
+          <span class="card-number">03</span>
+          <div class="medium-icon spatial-icon" aria-hidden="true"><i></i></div>
+          <h3>Spatial Memory</h3>
+          <p>A scene reconstructed from many viewpoints, ready to explore.</p>
+        </article>
+      </section>
+
+      <section
+        id="how-it-works"
+        class="process section-pad"
+        aria-labelledby="process-title"
+      >
+        <div class="process-heading">
+          <p class="section-index">02 / The process</p>
+          <h2 id="process-title">
+            We capture around the moment, not only in front of it.
+          </h2>
+        </div>
+        <ol class="steps">
+          <li>
+            <span>01</span>
+            <div>
+              <h3>Choose what matters</h3><p>
+                A person, gathering, place, performance, or object you want to
+                remember with a sense of space.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>02</span>
+            <div>
+              <h3>Capture from many views</h3><p>
+                We arrange multiple cameras around the scene and guide a capture
+                suited to the subject and setting.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>03</span>
+            <div>
+              <h3>Reconstruct the scene</h3><p>
+                The views are combined into a spatial scene using Gaussian
+                splatting and an evolving reconstruction workflow.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span>04</span>
+            <div>
+              <h3>Return to it</h3><p>
+                Receive access to an explorable static scene—or, where the
+                capture supports it, volumetric video.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="founding section-pad" aria-labelledby="founding-title">
+        <div class="founding-card">
+          <p class="eyebrow">Connecticut · Founding Captures</p>
+          <h2 id="founding-title">Help shape a new way of remembering.</h2>
+          <p>
+            We are selecting a small number of custom scenes for our earliest
+            captures. These sessions are experiments: intimate, collaborative,
+            and priced free or very low while we learn what works and what
+            people truly value.
+          </p>
+          <ul>
+            <li>For people in or near Connecticut</li>
+            <li>Designed individually around each scene</li>
+            <li>Honest about the limits of an emerging medium</li>
+            <li>Feedback is part of the experience</li>
+          </ul>
+          <a class="button button-dark" href="#apply"
+            >Tell us what you want to remember <span aria-hidden="true">↘</span
+            ></a
+          >
+        </div>
+        <aside id="memory-dome" class="future-note">
+          <span class="future-orb" aria-hidden="true"></span>
+          <p class="section-index">A future studio</p>
+          <h3>The Memory Dome</h3>
+          <p>
+            One day, a dedicated 360-degree portrait studio. For now, our
+            capture system comes to the memory.
+          </p>
+          <span class="status-pill">Future vision</span>
+        </aside>
+      </section>
+
+      <section
+        id="apply"
+        class="apply section-pad"
+        aria-labelledby="apply-title"
+      >
+        <div class="apply-intro">
+          <p class="section-index">03 / Your memory</p>
+          <h2 id="apply-title">What would you return to?</h2>
+          <p>
+            Tell us about a moment, person, place, or object with meaning. We
+            are looking for a few compelling, practical scenes to explore
+            together in Connecticut.
+          </p>
+          <p class="small-copy">
+            Selected applicants will hear directly from the founder to discuss
+            fit, uncertainty, timing, privacy, and what a capture could
+            realistically produce.
+          </p>
+        </div>
+        <ApplicationForm />
+      </section>
+    </main>
+
+    <footer>
+      <a class="wordmark" href="#top"
+        ><span class="wordmark-mark" aria-hidden="true"></span><span
+          >Aleatory <i>Spatial Memories</i></span
+        ></a
+      >
+      <p>Preserving meaningful pieces of reality.</p>
+      <p class="footer-meta">
+        An experimental project by aleatory.ai · Connecticut
+      </p>
+    </footer>
+  </div>
+</BaseLayout>
