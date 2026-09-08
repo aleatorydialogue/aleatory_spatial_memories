@@ -36,10 +36,12 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <section>
       <h2>Where it goes</h2>
       <p>
-        The form is processed by Cloudflare and delivered as an email to the
-        founder’s Gmail account. The application Worker does not intentionally
-        store a separate copy. Cloudflare, Google, and GitHub process limited
-        technical or account data under their own terms and privacy practices.
+        The form is processed by Cloudflare, sent through Resend, and delivered
+        to the founder’s Gmail account. The application Worker does not
+        intentionally store a separate copy. Resend currently retains email data
+        for 30 days on its free plan. Cloudflare, Resend, Google, and GitHub
+        process limited technical or account data under their own terms and
+        privacy practices.
       </p>
     </section>
 

@@ -21,16 +21,19 @@ The static site and application endpoint are separate deployments:
 
 Do not add a wildcard DNS record. DNS and TLS provisioning can take time.
 
-## Cloudflare email setup
+## Resend email setup
 
-Cloudflare now describes outbound sending as **Email Service → Send Email (beta)** and incoming forwarding as **Email Routing**.
+Cloudflare's outbound Email Service currently requires the Workers paid plan. The v0 Worker therefore uses Resend's free transactional-email API.
 
-1. In **Compute → Email Service**, add and onboard `rememberingpresence.com` for sending if **Send Email** is available to the account. Allow Cloudflare to add the required email-authentication DNS records.
-2. In **Email Routing → Destination Addresses**, add `aleatorydialogue@gmail.com` and follow the verification link sent to Gmail.
-3. The Worker sends from `applications@rememberingpresence.com`; a mailbox for this address is not required for the form notification, but the sender domain must be onboarded.
-4. Optionally create an incoming route from `hello@rememberingpresence.com` to the verified Gmail destination. That provides the public address without purchasing a separate mailbox; replies will still originate from Gmail unless Gmail is separately configured for sending.
+1. Create a free Resend account.
+2. Add `send.rememberingpresence.com` as a sending domain.
+3. Add the DNS records Resend provides to the `rememberingpresence.com` zone in Cloudflare. Keep this sending subdomain separate from the GitHub Pages records and future inbound-email routing.
+4. Wait until Resend reports the domain as verified.
+5. Create a Resend API key restricted to sending access and copy it once.
 
-If outbound Email Service beta is not available in the dashboard, stop before deploying the Worker. Use a transactional email provider through the same Worker boundary instead of weakening authentication or committing credentials.
+The Worker sends from `applications@send.rememberingpresence.com` to `aleatorydialogue@gmail.com`. It sets the applicant's address as Reply-To. Resend's current free plan allows 3,000 emails per month and 100 per day, with 30-day data retention.
+
+Cloudflare Email Routing can separately forward `hello@rememberingpresence.com` to Gmail when desired; it is not required for application delivery.
 
 ## Worker deployment credentials
 
@@ -39,6 +42,7 @@ If outbound Email Service beta is not available in the dashboard, stop before de
 3. In GitHub, open **Settings → Secrets and variables → Actions** and add repository secrets:
    - `CLOUDFLARE_ACCOUNT_ID`
    - `CLOUDFLARE_API_TOKEN`
+   - `RESEND_API_KEY`
 4. Open **Actions → Deploy application Worker → Run workflow**.
 5. Confirm `https://forms.rememberingpresence.com/health` returns JSON with `"ok": true`.
 

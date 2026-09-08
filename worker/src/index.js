@@ -3,9 +3,8 @@ const ALLOWED_ORIGINS = new Set([
   SITE_ORIGIN,
   "https://www.rememberingpresence.com",
 ]);
-const DESTINATION = "aleatorydialogue@gmail.com";
-const SENDER = "applications@rememberingpresence.com";
 const MAX_BODY_BYTES = 16_000;
+const RESEND_API_URL = "https://api.resend.com/emails";
 
 const limits = {
   name: 120,
@@ -53,6 +52,28 @@ function formatApplication(data, request) {
     "",
     "Reply directly to this email to contact the applicant.",
   ].join("\n");
+}
+
+async function sendApplicationEmail(data, request, env) {
+  const response = await fetch(RESEND_API_URL, {
+    method: "POST",
+    headers: {
+      authorization: `Bearer ${env.RESEND_API_KEY}`,
+      "content-type": "application/json",
+      "idempotency-key": crypto.randomUUID(),
+    },
+    body: JSON.stringify({
+      to: [env.DESTINATION_EMAIL],
+      from: `Remembering Presence applications <${env.SENDER_EMAIL}>`,
+      reply_to: data.email,
+      subject: `Founding Capture application — ${data.name}`,
+      text: formatApplication(data, request),
+    }),
+  });
+
+  if (!response.ok) {
+    throw new Error(`Resend request failed with status ${response.status}`);
+  }
 }
 
 export default {
@@ -131,20 +152,11 @@ export default {
     }
 
     try {
-      await env.EMAIL.send({
-        to: DESTINATION,
-        from: {
-          email: SENDER,
-          name: "Remembering Presence applications",
-        },
-        replyTo: data.email,
-        subject: `Founding Capture application — ${data.name}`,
-        text: formatApplication(data, request),
-      });
+      await sendApplicationEmail(data, request, env);
       return redirect("received");
     } catch (error) {
       console.error("Application email failed", {
-        code: error?.code ?? "unknown",
+        message: error instanceof Error ? error.message : "Unknown error",
       });
       return redirect("error");
     }

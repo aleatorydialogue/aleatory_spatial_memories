@@ -12,7 +12,7 @@ The v0 site is static and has a low-volume application form. It does not need a 
 
 Deploy the static Astro build to GitHub Pages at `https://rememberingpresence.com`. Submit applications to a narrow Cloudflare Worker at `https://forms.rememberingpresence.com/apply`.
 
-The Worker validates input, checks the request origin, uses a honeypot and rate-limit binding, sends one email through Cloudflare's native Email Service binding, and retains no application database. The binding restricts delivery to `aleatorydialogue@gmail.com` and sending to `applications@rememberingpresence.com`.
+The Worker validates input, checks the request origin, uses a honeypot and rate-limit binding, and sends one email through Resend's API. It retains no application database. Resend delivers to `aleatorydialogue@gmail.com` from `applications@send.rememberingpresence.com`; its API key is stored as a secret.
 
 Deployment uses GitHub Actions. Site deployment runs on pushes to `main`; Worker deployment is manual until Cloudflare credentials and email-domain setup are complete.
 
@@ -21,7 +21,7 @@ Deployment uses GitHub Actions. Site deployment runs on pushes to `main`; Worker
 - The public site remains entirely static and inexpensive to host.
 - Application data passes through Cloudflare and Google but is not intentionally stored by the Worker.
 - Email becomes the temporary system of record and must be managed accordingly.
-- Cloudflare Email Service is currently documented as beta and requires sender-domain onboarding.
+- Resend processes and retains email data according to its service terms; its current free plan documents 30-day retention.
 - Spam protection is intentionally modest; add Turnstile or stronger controls if abuse appears.
 - A future CRM or changed recipient does not require rebuilding the public site architecture.
 

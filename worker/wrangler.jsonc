@@ -9,13 +9,10 @@
       "custom_domain": true,
     },
   ],
-  "send_email": [
-    {
-      "name": "EMAIL",
-      "destination_address": "aleatorydialogue@gmail.com",
-      "allowed_sender_addresses": ["applications@rememberingpresence.com"],
-    },
-  ],
+  "vars": {
+    "DESTINATION_EMAIL": "aleatorydialogue@gmail.com",
+    "SENDER_EMAIL": "applications@send.rememberingpresence.com",
+  },
   "ratelimits": [
     {
       "name": "APPLICATION_RATE_LIMITER",
