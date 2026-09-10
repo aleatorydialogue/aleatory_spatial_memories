@@ -200,142 +200,20 @@ h1 em {
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
-.memory-window {
-  min-height: 620px;
-  border-radius: 50% 50% 1rem 1rem;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(
-      circle at 50% 42%,
-      rgba(216, 255, 99, 0.8) 0 2%,
-      transparent 2.5%
-    ),
-    radial-gradient(
-      circle at 50% 45%,
-      #574a48 0,
-      #2f2929 24%,
-      #171616 58%,
-      #0c0b0a 75%
-    );
-  border: 1px solid rgba(255, 255, 255, 0.13);
-}
-.memory-window::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.55;
-  background-image: radial-gradient(
-    circle,
-    rgba(216, 255, 99, 0.9) 0 1px,
-    transparent 1.4px
-  );
-  background-size: 18px 18px;
-  mask-image: radial-gradient(ellipse at center, black 0, transparent 72%);
-}
-.memory-window p {
-  position: absolute;
-  z-index: 3;
-  bottom: 1.5rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
-  padding-top: 0.8rem;
-  display: flex;
-  gap: 1rem;
-  color: #bab5aa;
-  font-size: 0.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-}
-.memory-window p span {
-  color: var(--lime);
-}
-.presence {
-  position: absolute;
-  z-index: 2;
-  left: 50%;
-  top: 48%;
-  transform: translate(-50%, -50%);
-  filter: blur(0.2px);
-}
-.presence-head {
-  display: block;
-  margin: auto;
-  width: 105px;
-  height: 125px;
-  border-radius: 52% 48% 44% 50%;
-  background: linear-gradient(130deg, #c7afa0, #806b66 48%, #332c2a);
-  box-shadow: 0 0 45px rgba(216, 255, 99, 0.12);
-}
-.presence-body {
-  display: block;
-  margin: -5px auto 0;
-  width: 275px;
-  height: 330px;
-  border-radius: 47% 47% 8% 8%;
-  background: linear-gradient(110deg, #4d4944, #242321 45%, #0b0b0a);
-  clip-path: polygon(23% 0, 77% 0, 100% 27%, 90% 100%, 10% 100%, 0 27%);
-}
-.orbit {
-  position: absolute;
-  z-index: 3;
-  left: 50%;
-  top: 48%;
-  border: 1px solid rgba(216, 255, 99, 0.4);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) rotate(-18deg);
-}
-.orbit-one {
-  width: 80%;
-  height: 38%;
-}
-.orbit-two {
-  width: 53%;
-  height: 70%;
-  transform: translate(-50%, -50%) rotate(55deg);
-  border-color: rgba(156, 140, 255, 0.34);
-}
-
-.section-pad {
-  padding: clamp(5rem, 9vw, 9rem) 6vw;
-}
-.intro-film {
-  background: #28231f;
-  color: var(--paper);
-  display: grid;
-  grid-template-columns: 0.36fr 1fr;
-  gap: clamp(2rem, 6vw, 7rem);
-  align-items: end;
-}
-.film-heading {
-  padding-bottom: 0.25rem;
-}
-.film-heading h2 {
-  margin: 1.25rem 0;
-  font-family: var(--serif);
-  font-size: clamp(2.8rem, 5vw, 5.5rem);
-  font-weight: 400;
-  letter-spacing: -0.035em;
-  line-height: 0.92;
-}
-.film-heading > p:not(.section-index) {
-  color: #bdb5a9;
-  font-size: 0.9rem;
-  line-height: 1.6;
-}
-.film-frame {
+.hero-film {
+  align-self: center;
   margin: 0;
+  min-width: 0;
 }
-.film-frame video {
+.hero-film video {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 30 / 17;
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.13);
   background: #11100e;
 }
-.film-frame figcaption {
+.hero-film figcaption {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
@@ -345,6 +223,10 @@ h1 em {
   letter-spacing: 0.08em;
   line-height: 1.4;
   text-transform: uppercase;
+}
+
+.section-pad {
+  padding: clamp(5rem, 9vw, 9rem) 6vw;
 }
 .manifesto {
   display: grid;
@@ -877,11 +759,7 @@ footer > p {
   .hero-copy {
     min-height: 620px;
   }
-  .memory-window {
-    min-height: 560px;
-  }
   .manifesto,
-  .intro-film,
   .spatial-example,
   .process,
   .founding,
@@ -890,9 +768,6 @@ footer > p {
   }
   .manifesto {
     gap: 1rem;
-  }
-  .intro-film {
-    gap: 2.5rem;
   }
   .spatial-example {
     gap: 2.5rem;
@@ -932,23 +807,24 @@ footer > p {
     font-size: 0.78rem;
   }
   .hero {
-    padding: 5rem 1.2rem 1.2rem;
+    padding: 4.5rem 1.2rem 2rem;
+    gap: 2.75rem;
   }
   .hero-copy {
-    min-height: 560px;
+    min-height: auto;
   }
   h1 {
     max-width: 100%;
     font-size: clamp(2.75rem, 14.5vw, 3.9rem);
     letter-spacing: -0.06em;
   }
-  .memory-window {
-    min-height: 480px;
+  .hero-caption {
+    margin-top: 2.5rem;
   }
   .section-pad {
     padding: 4.5rem 1.2rem;
   }
-  .film-frame figcaption {
+  .hero-film figcaption {
     align-items: flex-start;
     flex-direction: column;
     gap: 0.35rem;

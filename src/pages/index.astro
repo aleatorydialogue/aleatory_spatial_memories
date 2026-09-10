@@ -30,37 +30,13 @@ import BaseLayout from "../layouts/BaseLayout.astro";
           </p>
         </div>
 
-        <div
-          class="memory-window"
-          aria-label="Abstract visualization of a person held in a spatial memory"
-        >
-          <div class="orbit orbit-one"></div>
-          <div class="orbit orbit-two"></div>
-          <div class="presence" aria-hidden="true">
-            <span class="presence-head"></span>
-            <span class="presence-body"></span>
-          </div>
-          <p><span>01</span> A moment seen from many points of view</p>
-        </div>
-      </section>
-
-      <section class="intro-film section-pad" aria-labelledby="film-title">
-        <div class="film-heading">
-          <p class="section-index">A short film</p>
-          <h2 id="film-title">More than a frame.</h2>
-          <p>
-            A glimpse of the idea behind Remembering Presence: preserving not
-            only how a moment looked, but something of what it felt like to be
-            there.
-          </p>
-        </div>
-        <figure class="film-frame">
+        <figure class="hero-film">
           <video
             controls
             playsinline
-            preload="metadata"
+            preload="auto"
             poster="/video/intro-poster.jpg"
-            aria-describedby="film-caption"
+            aria-describedby="hero-film-caption"
           >
             <source src="/video/intro.mp4" type="video/mp4" />
             <track
@@ -73,7 +49,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             Your browser does not support embedded video. You can
             <a href="/video/intro.mp4">watch the film directly</a>.
           </video>
-          <figcaption id="film-caption">
+          <figcaption id="hero-film-caption">
             <span>Concept film · 00:39</span>
             <span>Turn on sound to hear the narration.</span>
           </figcaption>
