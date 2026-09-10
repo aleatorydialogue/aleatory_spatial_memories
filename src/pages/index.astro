@@ -44,6 +44,42 @@ import BaseLayout from "../layouts/BaseLayout.astro";
         </div>
       </section>
 
+      <section class="intro-film section-pad" aria-labelledby="film-title">
+        <div class="film-heading">
+          <p class="section-index">A short film</p>
+          <h2 id="film-title">More than a frame.</h2>
+          <p>
+            A glimpse of the idea behind Remembering Presence: preserving not
+            only how a moment looked, but something of what it felt like to be
+            there.
+          </p>
+        </div>
+        <figure class="film-frame">
+          <video
+            controls
+            playsinline
+            preload="metadata"
+            poster="/video/intro-poster.jpg"
+            aria-describedby="film-caption"
+          >
+            <source src="/video/intro.mp4" type="video/mp4" />
+            <track
+              default
+              kind="captions"
+              srclang="en"
+              label="English"
+              src="/video/intro-captions.vtt"
+            />
+            Your browser does not support embedded video. You can
+            <a href="/video/intro.mp4">watch the film directly</a>.
+          </video>
+          <figcaption id="film-caption">
+            <span>Concept film · 00:39</span>
+            <span>Turn on sound to hear the narration.</span>
+          </figcaption>
+        </figure>
+      </section>
+
       <section
         id="what-it-is"
         class="manifesto section-pad"

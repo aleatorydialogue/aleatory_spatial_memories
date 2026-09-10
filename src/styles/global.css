@@ -300,6 +300,52 @@ h1 em {
 .section-pad {
   padding: clamp(5rem, 9vw, 9rem) 6vw;
 }
+.intro-film {
+  background: #28231f;
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 0.36fr 1fr;
+  gap: clamp(2rem, 6vw, 7rem);
+  align-items: end;
+}
+.film-heading {
+  padding-bottom: 0.25rem;
+}
+.film-heading h2 {
+  margin: 1.25rem 0;
+  font-family: var(--serif);
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.92;
+}
+.film-heading > p:not(.section-index) {
+  color: #bdb5a9;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+.film-frame {
+  margin: 0;
+}
+.film-frame video {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 30 / 17;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: #11100e;
+}
+.film-frame figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-top: 0.85rem;
+  color: #888177;
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
 .manifesto {
   display: grid;
   grid-template-columns: 0.35fr 1fr;
@@ -725,6 +771,7 @@ footer > p {
     min-height: 560px;
   }
   .manifesto,
+  .intro-film,
   .process,
   .founding,
   .apply {
@@ -732,6 +779,9 @@ footer > p {
   }
   .manifesto {
     gap: 1rem;
+  }
+  .intro-film {
+    gap: 2.5rem;
   }
   .comparison {
     grid-template-columns: 1fr;
@@ -783,6 +833,11 @@ footer > p {
   }
   .section-pad {
     padding: 4.5rem 1.2rem;
+  }
+  .film-frame figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
   }
   .field-pair,
   .choice-grid,
