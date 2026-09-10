@@ -121,6 +121,58 @@ import BaseLayout from "../layouts/BaseLayout.astro";
       </section>
 
       <section
+        id="spatial-example"
+        class="spatial-example section-pad"
+        aria-labelledby="example-title"
+      >
+        <div class="example-heading">
+          <p class="section-index">Interactive experiment</p>
+          <h2 id="example-title">Move through a captured scene.</h2>
+          <p>
+            A Spatial Memory is not limited to the camera's original position.
+            Drag to change your point of view and look around this early static
+            scene.
+          </p>
+          <p class="example-note">
+            This placeholder demonstrates the medium, not a complete Founding
+            Capture deliverable. It requires WebGL and downloads about 30 MB
+            when opened.
+          </p>
+        </div>
+        <div class="splat-stage" data-splat-stage>
+          <div class="splat-placeholder">
+            <span class="splat-orbit splat-orbit-one" aria-hidden="true"></span>
+            <span class="splat-orbit splat-orbit-two" aria-hidden="true"></span>
+            <span class="splat-point" aria-hidden="true"></span>
+            <button class="button button-light" type="button" data-load-splat>
+              Load interactive scene <span aria-hidden="true">↗</span>
+            </button>
+            <p>Click to load · approximately 30 MB</p>
+          </div>
+          <noscript>
+            <p class="splat-noscript">
+              JavaScript is required for the interactive viewer. You can
+              <a href="/splat-viewer/">open the scene directly</a>.
+            </p>
+          </noscript>
+        </div>
+      </section>
+
+      <script is:inline>
+        const stage = document.querySelector("[data-splat-stage]");
+        const loadButton = stage?.querySelector("[data-load-splat]");
+
+        loadButton?.addEventListener("click", () => {
+          const frame = document.createElement("iframe");
+          frame.src = "/splat-viewer/index.html?webgl";
+          frame.title = "Interactive static Spatial Memory example";
+          frame.allow = "fullscreen; xr-spatial-tracking";
+          frame.setAttribute("allowfullscreen", "");
+          stage.replaceChildren(frame);
+        });
+      </script>
+
+      <section
         id="how-it-works"
         class="process section-pad"
         aria-labelledby="process-title"

@@ -461,6 +461,116 @@ h1 em {
   top: 69px;
 }
 
+.spatial-example {
+  background: var(--ink);
+  color: var(--paper);
+  display: grid;
+  grid-template-columns: 0.38fr 1fr;
+  gap: clamp(2.5rem, 7vw, 8rem);
+  align-items: center;
+}
+.example-heading h2 {
+  max-width: 8ch;
+  margin: 1.4rem 0;
+  font-family: var(--serif);
+  font-size: clamp(3rem, 5.5vw, 5.8rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.94;
+}
+.example-heading > p:not(.section-index) {
+  color: #c9c4b8;
+  line-height: 1.6;
+}
+.example-heading .example-note {
+  margin-top: 1.5rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  color: #888177;
+  font-size: 0.72rem;
+}
+.splat-stage {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  background: #0b0a09;
+}
+.splat-stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+.splat-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  overflow: hidden;
+  background: radial-gradient(
+    circle at center,
+    #403a32 0,
+    #201d1a 30%,
+    #0b0a09 70%
+  );
+}
+.splat-placeholder > :not(.splat-orbit, .splat-point) {
+  position: relative;
+  z-index: 2;
+}
+.splat-placeholder > p {
+  margin: 0;
+  color: #77736b;
+  font-size: 0.63rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.splat-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  border: 1px solid rgba(216, 255, 99, 0.28);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+.splat-orbit-one {
+  width: 62%;
+  height: 32%;
+}
+.splat-orbit-two {
+  width: 32%;
+  height: 65%;
+  border-color: rgba(156, 140, 255, 0.3);
+  transform: translate(-50%, -50%) rotate(52deg);
+}
+.splat-point {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 35px rgba(216, 255, 99, 0.7);
+  transform: translate(-50%, -50%);
+}
+.splat-noscript {
+  position: absolute;
+  z-index: 3;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  margin: 0;
+  color: var(--paper);
+  font-size: 0.75rem;
+  text-align: center;
+}
+
 .process {
   background: #d4cdbf;
   display: grid;
@@ -772,6 +882,7 @@ footer > p {
   }
   .manifesto,
   .intro-film,
+  .spatial-example,
   .process,
   .founding,
   .apply {
@@ -781,6 +892,9 @@ footer > p {
     gap: 1rem;
   }
   .intro-film {
+    gap: 2.5rem;
+  }
+  .spatial-example {
     gap: 2.5rem;
   }
   .comparison {
