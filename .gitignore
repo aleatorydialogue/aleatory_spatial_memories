@@ -5,3 +5,4 @@ dist/
 .env.*
 !.env.example
 .DS_Store
+/LOCAL_ARCHITECTURE_NOTES.md
